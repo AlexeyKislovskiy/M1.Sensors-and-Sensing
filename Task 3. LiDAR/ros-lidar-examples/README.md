@@ -1,28 +1,17 @@
-# ROS LiDAR Examples
+# Task 3. LiDAR
 
-Примеры кода для работы со сканами LiDAR.
-
-## Требования
-
-1. Ubuntu 20.04 (ROS Noetic).
-2. Python 3.8
 
 ## Как запустить?
 
-### Эмуляция приближения и отдаления от препятствия
 
 ```shell
-rosrun ros_lidar_examples fake_scan_publisher.py
-```
-В скрипте есть возможность изменить параметры - параметры LiDAR, скорость движения, размеры и расстояние до препятствия.
-
-### Вычисление движения
-
-```shell
-rosrun ros_lidar_examples subscriber.py
+roslaunch ros_lidar_examples obstacle_detector.launch
 ```
 
-Для визуализации запустите RViz:
-```shell
-rosrun rviz rviz -d rviz/default.rviz
-```
+## Описание заданий
+
+Задание 1. Вывод данных сканирования (топик /scan) показан в RViz. Изменение параметров angle_min и angle_max задает диапазон углов, в котором лидар URG-04LX будет публиковать данные сканирования
+
+Задание 2. Реализовано в ноде obstacle_detector.py, при приближении на пороговое расстояние выводится предупреждение с помощью rospy.logwarn
+
+Задание 3. И основное, и дополнительное задание реализованы в ноде obstacle_detector.py. Информация о типе движения, расстоянии и скорости публикуется в топик /obstacle_movement и выводится в консоль
